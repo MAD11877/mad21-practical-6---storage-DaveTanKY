@@ -33,7 +33,7 @@ public class DBHandler  extends SQLiteOpenHelper {
             int randFollowed = rand.nextInt();
             ContentValues values =  new ContentValues();
 
-            user u = new user();
+            User u = new User();
             u.setName("Dave " + randName);
             u.setDesc("Description " + randDesc);
             if (randFollowed % 2 == 0) {
@@ -59,7 +59,7 @@ public class DBHandler  extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addUser(user u)
+    public void addUser(User u)
     {
         ContentValues values = new ContentValues();
         values.put("name", u.name);
@@ -78,15 +78,15 @@ public class DBHandler  extends SQLiteOpenHelper {
         db.close();
     }
 
-    public ArrayList<user> getUser(String name)
+    public ArrayList<User> getUser(String name)
     {
         SQLiteDatabase db = getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM USERS", null);
-        user u = null;
-        ArrayList<user> list = new ArrayList<>();
+        User u = null;
+        ArrayList<User> list = new ArrayList<>();
         while(cursor.moveToNext())
         {
-            u = new user();
+            u = new User();
             u.setName(cursor.getString(1));
             u.setDesc(cursor.getString(2));
             if (cursor.getInt(3) == 1)
@@ -104,7 +104,7 @@ public class DBHandler  extends SQLiteOpenHelper {
         return list;
     }
 
-    public void updateUser(user u)
+    public void updateUser(User u)
     {
 
         SQLiteDatabase db = getWritableDatabase();

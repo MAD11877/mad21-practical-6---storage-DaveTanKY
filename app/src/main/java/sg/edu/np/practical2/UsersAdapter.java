@@ -4,8 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +11,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class UsersAdapter extends RecyclerView.Adapter<UserViewHolder> {
     Context context;
-    ArrayList<user> obj;
+    ArrayList<User> obj;
 
 
     public UsersAdapter(Context c, ArrayList d)
@@ -40,7 +37,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UserViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
 
-        user u = obj.get(position);
+        User u = obj.get(position);
 
         holder.name.setText(u.getName());
         holder.desc.setText(u.getDesc());

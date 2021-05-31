@@ -1,22 +1,15 @@
 package sg.edu.np.practical2;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.view.View;
 
 public class ListActivity extends AppCompatActivity {
-    static ArrayList<user> obj = new ArrayList<>();
+    static ArrayList<User> userList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +19,11 @@ public class ListActivity extends AppCompatActivity {
 
 
         DBHandler db = new DBHandler(ListActivity.this);
-//
-        obj = db.getUser("*");
+
+        userList = db.getUser("*");
 
         RecyclerView rv = findViewById(R.id.rv);
-        UsersAdapter adapter = new UsersAdapter( this, obj);
+        UsersAdapter adapter = new UsersAdapter( this, userList);
         LinearLayoutManager lm = new LinearLayoutManager(this);
         rv.setLayoutManager(lm);
         rv.setAdapter(adapter);

@@ -1,6 +1,6 @@
 package sg.edu.np.practical2;
 
-public class user {
+public class User {
     public String name, desc;
     public int id;
     public boolean followed;
@@ -48,9 +48,9 @@ public class user {
 
 
 
-    public user(){};
+    public User(){};
 
-    public user(String name, String desc, int id, boolean followed, int age) {
+    public User(String name, String desc, int id, boolean followed, int age) {
         this.name = name;
         this.desc = desc;
         this.id = id;

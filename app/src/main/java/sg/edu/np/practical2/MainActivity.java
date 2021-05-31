@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 //        user newUser = new user("Dave", "Description about Dave", 1, false, 20);
         Intent receivingEnd = getIntent();
         int userID = receivingEnd.getIntExtra("id",0);
-        user clickedUser = ListActivity.obj.get(userID);
+        User clickedUser = ListActivity.userList.get(userID);
         message.setText("MESSAGE");
         name.setText(clickedUser.name);
         desc.setText(clickedUser.desc);
